@@ -5,7 +5,7 @@ class Command(BaseCommand):
     help = 'Assigns permissions to the manager group'
 
     def handle(self, *args, **kwargs):
-        manager_group, created = Group.objects.get_or_create(name='Менеджер')
+        manager_group, created = Group.objects.get_or_create(name='Manager')
 
         permissions = [
             'view_mailing',
