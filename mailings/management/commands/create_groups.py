@@ -9,12 +9,12 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # Create Manager group
-        manager_group, created = Group.objects.get_or_create(name='Менеджер')
+        manager_group, created = Group.objects.get_or_create(name='Manager')
         
         if created:
-            self.stdout.write(self.style.SUCCESS(f'Group "Менеджер" created'))
+            self.stdout.write(self.style.SUCCESS(f'Group "Manager" created'))
         else:
-            self.stdout.write(self.style.WARNING(f'Group "Менеджер" already exists'))
+            self.stdout.write(self.style.WARNING(f'Group "Manager" already exists'))
 
         # Set permissions for Manager group
         content_type = ContentType.objects.get_for_model(Mailing)
@@ -24,6 +24,6 @@ class Command(BaseCommand):
         
         for permission in permissions:
             manager_group.permissions.add(permission)
-            self.stdout.write(self.style.SUCCESS(f'Permission "{permission.name}" added to group "Менеджер"'))
+            self.stdout.write(self.style.SUCCESS(f'Permission "{permission.name}" added to group "Manager"'))
         
         self.stdout.write(self.style.SUCCESS('Default groups and permissions created'))
