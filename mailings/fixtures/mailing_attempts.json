@@ -1,0 +1,22 @@
+[
+    {
+        "model": "mailings.mailingattempt",
+        "pk": 1,
+        "fields": {
+            "mailing": 1,
+            "attempt_time": "2024-07-20T12:05:00Z",
+            "status": "SUCCESS",
+            "server_response": "200 OK"
+        }
+    },
+    {
+        "model": "mailings.mailingattempt",
+        "pk": 2,
+        "fields": {
+            "mailing": 1,
+            "attempt_time": "2024-07-21T12:05:00Z",
+            "status": "FAILED",
+            "server_response": "500 Internal Server Error"
+        }
+    }
+]

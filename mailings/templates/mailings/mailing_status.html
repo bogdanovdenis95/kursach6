@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Update Status{% endblock %}
+
+{% block content %}
+    <h1>Update Status for {{ mailing.title }}</h1>
+    <form method="post" action="{% url 'mailings:update_status' mailing.pk %}">
+        {% csrf_token %}
+        <label for="status">Status:</label>
+        <select name="status" id="status">
+            <option value="draft" {% if mailing.status == 'draft' %}selected{% endif %}>Draft</option>
+            <option value="sent" {% if mailing.status == 'sent' %}selected{% endif %}>Sent</option>
+            <option value="scheduled" {% if mailing.status == 'scheduled' %}selected{% endif %}>Scheduled</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Update Status</button>
+    </form>
+    <a href="{% url 'mailings:detail' mailing.pk %}" class="btn btn-secondary">Back to Details</a>
+{% endblock %}

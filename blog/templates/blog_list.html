@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+    <h2>Blog</h2>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'blog:blog_detail' post.pk %}">{{ post.title }}</a>
+                <p>Published on: {{ post.published_date }}</p>
+                <p>Views: {{ post.views }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

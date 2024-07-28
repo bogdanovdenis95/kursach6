@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Messages{% endblock %}
+
+{% block content %}
+    <h1>Messages</h1>
+    <a href="{% url 'mailings:message_create' %}" class="btn btn-primary">Create New Message</a>
+    <ul>
+        {% for message in object_list %}
+            <li>
+                <a href="{% url 'mailings:message_detail' message.pk %}">{{ message.subject }}</a>
+                <a href="{% url 'mailings:message_update' message.pk %}" class="btn btn-secondary" style="margin-left: 10px; margin-bottom: 10px; margin-top: 10px;">Edit</a>
+                <a href="{% url 'mailings:message_delete' message.pk %}" class="btn btn-danger" style="margin-left: 10px; margin-bottom: 10px; margin-top: 10px;">Delete</a>
+            </li>
+        {% empty %}
+            <p>No messages available.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}

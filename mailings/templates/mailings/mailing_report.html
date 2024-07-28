@@ -1,0 +1,58 @@
+<!-- mailings/templates/mailings/mailing_report.html -->
+
+{% extends "base_generic.html" %}
+
+{% block title %}
+Mailing Report
+{% endblock %}
+
+{% block content %}
+<h1>Mailing Report</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Start Time</th>
+            <th>Total Attempts</th>
+            <th>Successful</th>
+            <th>Failed</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mailing in mailings %}
+        <tr>
+            <td>{{ mailing.id }}</td>
+            <td>{{ mailing.title }}</td>
+            <td>{{ mailing.start_time }}</td>
+            <td>{{ mailing.total_attempts }}</td>
+            <td>{{ mailing.successful_attempts }}</td>
+            <td>{{ mailing.failed_attempts }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h2>Mailing Attempts Details</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Mailing</th>
+            <th>Recipient</th>
+            <th>Status</th>
+            <th>Attempt Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for attempt in mailing_attempts %}
+        <tr>
+            <td>{{ attempt.id }}</td>
+            <td>{{ attempt.mailing.title }}</td>
+            <td>{{ attempt.recipient.email }}</td>
+            <td>{{ attempt.status }}</td>
+            <td>{{ attempt.attempt_time }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

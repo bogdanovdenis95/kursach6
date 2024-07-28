@@ -1,0 +1,13 @@
+<!-- templates/mailings/mailing_detail.html -->
+
+{% extends "base_generic.html" %}
+
+{% block title %}Mailing Detail{% endblock %}
+
+{% block content %}
+    <h1>{{ object.name }}</h1>
+    <p>{{ object.description }}</p>
+    <p>Status: {{ object.status }}</p>
+    <a href="{% url 'mailings:mailing_update' object.pk %}" class="btn btn-secondary">Edit</a>
+    <a href="{% url 'mailings:mailing_delete' object.pk %}" class="btn btn-danger">Delete</a>
+{% endblock %}

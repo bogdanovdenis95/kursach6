@@ -1,0 +1,20 @@
+[
+    {
+        "model": "mailings.message",
+        "pk": 1,
+        "fields": {
+            "subject": "Welcome!",
+            "body": "Welcome to our service.",
+            "owner": 1
+        }
+    },
+    {
+        "model": "mailings.message",
+        "pk": 2,
+        "fields": {
+            "subject": "Reminder",
+            "body": "Don't forget about our event.",
+            "owner": 1
+        }
+    }
+]

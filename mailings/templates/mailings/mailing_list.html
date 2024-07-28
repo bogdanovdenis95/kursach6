@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Mailings{% endblock %}
+
+{% block content %}
+    <h1>Mailings</h1>
+    <a href="{% url 'mailings:mailing_create' %}" class="btn btn-primary">Create New Mailing</a>
+    <ul>
+        {% for mailing in object_list %}
+            <li>
+                <a href="{% url 'mailings:mailing_detail' mailing.pk %}">{{ mailing }}</a>
+                {% if user == mailing.owner %}
+                    <a href="{% url 'mailings:mailing_update' mailing.pk %}" class="btn btn-secondary" style="margin-left: 10px; margin-bottom: 10px; margin-top: 10px;">Edit</a>
+                    <a href="{% url 'mailings:mailing_delete' mailing.pk %}" class="btn btn-danger" style="margin-left: 10px; margin-bottom: 10px; margin-top: 10px;">Delete</a>
+                {% endif %}
+            </li>
+        {% empty %}
+            <p>No mailings available.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}

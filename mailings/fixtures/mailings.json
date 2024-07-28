@@ -1,0 +1,26 @@
+[
+    {
+        "model": "mailings.mailing",
+        "pk": 1,
+        "fields": {
+            "start_time": "2024-07-20T12:00:00Z",
+            "periodicity": "DAILY",
+            "status": "CREATED",
+            "message": 1,
+            "owner": 1,
+            "clients": [1, 2]
+        }
+    },
+    {
+        "model": "mailings.mailing",
+        "pk": 2,
+        "fields": {
+            "start_time": "2024-07-21T12:00:00Z",
+            "periodicity": "WEEKLY",
+            "status": "CREATED",
+            "message": 2,
+            "owner": 1,
+            "clients": [2]
+        }
+    }
+]

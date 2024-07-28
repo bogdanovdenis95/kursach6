@@ -1,0 +1,22 @@
+[
+    {
+        "model": "mailings.client",
+        "pk": 1,
+        "fields": {
+            "email": "client1@example.com",
+            "full_name": "Client One",
+            "comment": "First client",
+            "owner": 1
+        }
+    },
+    {
+        "model": "mailings.client",
+        "pk": 2,
+        "fields": {
+            "email": "client2@example.com",
+            "full_name": "Client Two",
+            "comment": "Second client",
+            "owner": 1
+        }
+    }
+]

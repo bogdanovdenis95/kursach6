@@ -1,0 +1,25 @@
+<!-- home.html -->
+
+{% extends "base_generic.html" %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <h1>Добро пожаловать на главную страницу</h1>
+    <p>Общее количество рассылок: {{ total_mailings }}</p>
+    <p>Количество активных рассылок: {{ active_mailings }}</p>
+    <p>Количество уникальных клиентов: {{ unique_clients }}</p>
+
+    <h2>Случайные статьи из блога:</h2>
+    <ul>
+        {% for post in random_posts %}
+            <li>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content|truncatewords:30 }}</p> <!-- Выводим первые 30 слов -->
+                <a href="{% url 'blog:blog_detail' post.id %}">Читать далее</a> <!-- Поменяйте на свой URL -->
+            </li>
+        {% empty %}
+            <li>Нет статей для отображения.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Confirm Delete{% endblock %}
+
+{% block content %}
+    <h1>Are you sure you want to delete "{{ object }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'mailings:mailing_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
