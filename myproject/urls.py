@@ -11,7 +11,7 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('blog/', include('blog.urls')),
     path('mailings/', include('mailings.urls')),
-    path('', main_views.home, name='home'),
+    path('', include('main.urls')),
 ]
 
 if settings.DEBUG:

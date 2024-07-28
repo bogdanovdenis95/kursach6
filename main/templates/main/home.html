@@ -1,5 +1,3 @@
-<!-- home.html -->
-
 {% extends "base_generic.html" %}
 
 {% block title %}Главная страница{% endblock %}
@@ -10,7 +8,14 @@
     <p>Количество активных рассылок: {{ active_mailings }}</p>
     <p>Количество уникальных клиентов: {{ unique_clients }}</p>
 
-    <h2>Случайные статьи из блога:</h2>
+    {% if user_is_manager %}
+    <div class="manager-buttons">
+        <a href="{% url 'users' %}" class="btn btn-primary">Users</a>
+        <a href="{% url 'admin_mailings' %}" class="btn btn-primary">Admin Mailings</a>
+    </div>
+    {% endif %}
+
+    <h2 style="padding-top: 50px;">Случайные статьи из блога:</h2>
     <ul>
         {% for post in random_posts %}
             <li>

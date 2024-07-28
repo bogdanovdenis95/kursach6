@@ -1,8 +1,8 @@
-# main/urls.py
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='home'),
-    path('other/', views.other_view, name='other_view'),
+    path('', views.home, name='home'),
+    path('users/', views.users, name='users'),
+    path('mailings/manager/mailings/', views.mailings, name='admin_mailings'),
 ]

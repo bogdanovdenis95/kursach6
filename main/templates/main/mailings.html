@@ -1,0 +1,25 @@
+<!-- templates/mailings/manager_mailing_list.html -->
+{% extends "base_generic.html" %}
+
+{% block title %}All Mailings{% endblock %}
+
+{% block content %}
+    <h1>All Mailings</h1>
+    {% if mailings %}
+        <ul>
+            {% for mailing in mailings %}
+                <li>
+                    <a href="{% url 'mailings:mailing_detail' mailing.pk %}">{{ mailing }}</a>
+                    {% if mailing.status != 'DISABLED' %}
+                        <form method="post" action="{% url 'mailings:manager_disable_mailing' mailing.pk %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger" style="margin-left: 10px;">Отключить</button>
+                        </form>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No mailings available.</p>
+    {% endif %}
+{% endblock %}
